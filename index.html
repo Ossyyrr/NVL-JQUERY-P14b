@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>	
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+	<link rel="shortcut icon" href="images/favicon.png" /> 
+	<script src="js/jquery 3.4.1.js"></script>
+ 	<title> Prework </title>
+
+
+<style>
+
+ td{
+	 height: 200px;
+	 width: 200px;
+	 background-color: azure;
+ }
+
+
+</style>
+
+</head>
+	<body>
+		<h2>Muévete con las teclas W A S D</h2>
+		<table border="1px" style="margin: auto">
+			<tr>
+			  <td></td>
+			  <td></td>
+			  <td></td>
+			</tr>
+			<tr>
+			  <td></td>
+			  <td></td>
+			  <td></td>
+			</tr>
+			<tr>
+			  <td></td>
+			  <td></td>
+			  <td></td>
+			</tr>
+		  </table>
+		
+<script>
+
+var este;
+
+function fondo (){
+			$("td").css("background-color", "azure");
+			$("td").css("border", "black 1px dotted");
+			$coleccion[este].style.backgroundColor = "crimson";
+			$coleccion[este].style.border = "2px gold solid";
+}
+
+var $coleccion = $("td");
+
+ $coleccion.on( "click", function(e){
+	$("td").css("background-color", "azure");
+	$("td").css("border", "black 1px dotted");
+	$(this).css("background-color", "crimson");
+	$(this).css("border", "gold 2px dotted");
+	
+	este = $coleccion.index(this);
+
+
+});
+
+$( "body" ).on( "keypress", function(e) {
+		var key = e.keyCode;
+	switch (key){
+		case 119:
+		switch (este){
+				default: este = este - 3; break;
+				case 2:
+				este = 7;
+				break;
+				case 1:
+				este = 6;
+				break;
+				case 0:
+				este = 8;
+				break;
+			}
+		fondo();
+		break;
+
+		case 115:
+		switch (este){
+				default: este = este + 3; break;
+				case 6:
+				este = 1;
+				break;
+				case 7:
+				este = 2;
+				break;
+				case 8:
+				este = 0;
+				break;
+			}
+		fondo();
+		break;
+
+		case 97:
+		if (este > 0){
+			este--;
+		}else{
+			este = 8;
+		}
+		fondo();
+		break;
+
+		case 100:
+		if (este < 8){
+			este++;
+		}else{
+			este = 0;
+		}
+		fondo();
+		break;
+}
+});
+
+/*
+W = 119
+s = 115
+a = 97
+d = 100
+*/
+
+</script>
+
+
+
+	</body>	    
+</html>
